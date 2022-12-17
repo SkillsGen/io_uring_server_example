@@ -341,6 +341,7 @@ ContinueReadEvent(server_state *ServerState, connection_event *Event)
     SubmitQueueEntry->user_data = (u32 long)Event;
 }
 
+//NOTE: this is so we can see the address of the sender 
 struct recv_msg_buffer
 {
     msghdr      Header;
