@@ -10,8 +10,10 @@ just for demonstration/getting a feel for it.
 accepts the connection by grabbing a connection_info struct and
 associating that with the socket and all further events on that socket.
 Then a Event_Read entry is queued on that socket with a connection_event
-struct that has the data buffer aswell as the connection_info
-It will echo back any data sent to it with an Event_Write.
+struct that has the data buffer aswell as a ptr to the connection_info 
+struct.
+  It will echo back any data sent to it with an Event_Write.
+  
   The UDP socket is not initialized.
 
   #including liburing.h sometimes doesn't work so that functionality is
