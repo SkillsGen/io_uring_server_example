@@ -1,17 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <netinet/in.h>
-#include <sys/stat.h>
-#include <sys/ioctl.h>
 #include <sys/syscall.h>
 #include <sys/mman.h>
-#include <sys/uio.h>
 #include <arpa/inet.h>
-#include <linux/fs.h>
-#include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
-#include <fcntl.h>
 
 #include "linux_utils.h"
 //#include <liburing.h>
@@ -70,20 +63,6 @@ enum event_type
     Event_UDPAccept,
     Event_UDPRead,
     Event_UDPWrite,
-};
-
-struct entry_userdata
-{
-    event_type Type;
-    
-    sockaddr_in Address;
-    socklen_t   AddressLength;
-    s32 Socket;
-
-    void *ReadBuffer; //TODO: Fixed kernel mapped buffers
-    void *SendBuffer; //TODO: Fixed kernel mapped buffers
-    u32   BufferSize;
-    u32   BytesToSend;
 };
 
 #define DATA_BUFFER_SIZE 4*1024*1024
